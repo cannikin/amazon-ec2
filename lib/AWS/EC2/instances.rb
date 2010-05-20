@@ -206,7 +206,9 @@ module AWS
       # @todo Implement this method
       #
       def describe_reserved_instances( options = {} )
-        raise "Not yet implemented"
+        options = { :reservation_id => [] }.merge(options)
+        params = pathlist("ReservationId", options[:reservation_id])
+        return response_generator(:action => "DescribeReservedInstances", :params => params)
       end
 
 
